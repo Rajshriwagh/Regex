@@ -27,6 +27,16 @@ public class RegexEx {
 			System.out.println("You have entered valid last name!");
 		else
 			System.out.println("You have entered invalid last name!");
+		
+		System.out.println("Enter your email");
+		String email = sc.next();
+		Pattern pt3 = Pattern.compile("^[a-z]{3,}([.][a-z]{3,})?[@][a-z]{2,}[.]co([.]in)?$"); 
+		Matcher mail = pt3.matcher(email);
+		
+		if(mail.matches())
+			System.out.println("You have entered Valid email!");
+		else
+			System.out.println("You have entered Invalid email!");
 	}
 
 }
