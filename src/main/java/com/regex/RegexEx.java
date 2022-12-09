@@ -17,6 +17,16 @@ public class RegexEx {
 			System.out.println("You have entered valid first name!");
 		else
 			System.out.println("You have entered invalid first name!");
+		
+		System.out.println("Enter last name starts with Cap and has minimum 3 characters : ");
+		String lastname = sc.next();
+		Pattern pt2 = Pattern.compile("^[A-Z][a-z]{2,}"); 
+		Matcher ml = pat1.matcher(firstname);
+
+		if (ml.matches())
+			System.out.println("You have entered valid last name!");
+		else
+			System.out.println("You have entered invalid last name!");
 	}
 
 }
