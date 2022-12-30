@@ -50,17 +50,15 @@ public class RegexEx {
             System.out.println("Sorry! you have entered invalid Mobile Number");
         }
         
-      //UC6: Password with the rule of minimum 1 capital letter
+      //UC7: Password with the rule of minimum 1 number in the password
         System.out.println("Please enter your Password: ");
         String password = sc.next();
-        
-        String passwordPattern="^(?=.*[A-Z])([A-Za-z0-9]){8,}$";
+        String passwordPattern="^(?=.*[0-9])(?=.*[A-Z])([A-Za-z0-9]){8,}$";
         boolean passwordCheck = Pattern.matches(passwordPattern,password);
         if (passwordCheck) {
-            System.out.println("Fantastic! You have entered valid Password");
+            System.out.println("You have entered valid Password");
         } else {
             System.out.println("Sorry! you have entered invalid Password");
         }
-        
     }
 }
