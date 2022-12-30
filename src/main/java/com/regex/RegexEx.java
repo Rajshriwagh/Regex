@@ -41,7 +41,7 @@ public class RegexEx {
 
         System.out.println("Please enter your Mobile Number: ");
         String mobileNumber = sc.next();
-        sc.next();
+      
         String mobileNumberPattern="^[+91]{3,} [0-9]{10}$";
         boolean mnCheck = Pattern.matches(mobileNumberPattern, mobileNumber);
         if (mnCheck) {
@@ -49,15 +49,18 @@ public class RegexEx {
         } else {
             System.out.println("Sorry! you have entered invalid Mobile Number");
         }
-
+        
+      //UC6: Password with the rule of minimum 1 capital letter
         System.out.println("Please enter your Password: ");
         String password = sc.next();
-        String passwordPattern="[A-Za-z0-9]{8,}$";
+        
+        String passwordPattern="^(?=.*[A-Z])([A-Za-z0-9]){8,}$";
         boolean passwordCheck = Pattern.matches(passwordPattern,password);
         if (passwordCheck) {
-            System.out.println("You have entered valid Password");
+            System.out.println("Fantastic! You have entered valid Password");
         } else {
             System.out.println("Sorry! you have entered invalid Password");
         }
+        
     }
 }
