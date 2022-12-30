@@ -1,52 +1,63 @@
 package com.regex;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
+
 import java.util.regex.Pattern;
 
 public class RegexEx {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		Pattern pat1 = Pattern.compile("^[A-Z][a-z]{2,}");
-		System.out.println("Enter first name starts with Cap and has minimum 3 characters : ");
-		String firstname = sc.next();
-		Matcher mf = pat1.matcher(firstname);
+	public static void main( String[] args )
+    {
+		System.out.println( "Welcome to User Registration!!!" );
 
-		if (mf.matches())
-			System.out.println("You have entered valid first name!");
-		else
-			System.out.println("You have entered invalid first name!");
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Please enter your First Name: ");
+        String firstName=sc.next();
+        boolean res= Pattern.matches("^[A-Z][A-Za-z]{2,}$", firstName);
+        if(res) {
+            System.out.println("You have entered valid First Name");
+        }else {
+            System.out.println("Sorry! you have entered invalid First Name");
+        }
 
-		System.out.println("Enter last name starts with Cap and has minimum 3 characters : ");
-		String lastname = sc.next();
-		Pattern pt2 = Pattern.compile("^[A-Z][a-z]{2,}");
-		Matcher ml = pat1.matcher(firstname);
+        System.out.println("Please enter your Last Name: ");
+        String lastName = sc.next();
+        boolean res1 = Pattern.matches("^[A-Z][A-Za-z]{2,}$", lastName);
+        if (res1) {
+            System.out.println(" You have entered valid Last Name");
+        } else {
+            System.out.println("Sorry! you have entered invalid Last Name");
+        }
 
-		if (ml.matches())
-			System.out.println("You have entered valid last name!");
-		else
-			System.out.println("You have entered invalid last name!");
+        System.out.println("Please enter your Email Address: ");
+        String email = sc.next();
+        String emailPattern="^[a-z0-9]{3,}[+.-]?[a-z0-9]{0,}[@]{1,}[a-z0-9]{1,}[.]{1,}([a-z]{0,}[.]{0,})[a-z]{2,}$";
+        boolean emailCheck = Pattern.matches(emailPattern, email);
+        if (emailCheck) {
+            System.out.println("You have entered valid Email Address");
+        } else {
+            System.out.println("Sorry! you have entered invalid Email Address");
+        }
 
-		System.out.println("Enter your email");
-		String email = sc.next();
-		Pattern pt3 = Pattern.compile("^[a-z]{3,}([.][a-z]{3,})?[@][a-z]{2,}[.]co([.]in)?$");
-		Matcher mail = pt3.matcher(email);
-
-		if (mail.matches())
-			System.out.println("You have entered Valid email!");
-		else
-			System.out.println("You have entered Invalid email!");
-
-		System.out.println("Enter your Mobile Number: ");
+        System.out.println("Please enter your Mobile Number: ");
         String mobileNumber = sc.next();
-        String pt4="^(91)[ ]{1}[1-9]{1}[0-9]{9}$";
-        boolean mn = Pattern.matches(pt4, mobileNumber);
-        if (mn) {
+        sc.next();
+        String mobileNumberPattern="^[+91]{3,} [0-9]{10}$";
+        boolean mnCheck = Pattern.matches(mobileNumberPattern, mobileNumber);
+        if (mnCheck) {
             System.out.println("You have entered valid Mobile Number");
         } else {
-            System.out.println("You have entered invalid Mobile Number");
+            System.out.println("Sorry! you have entered invalid Mobile Number");
         }
-	}
 
+        System.out.println("Please enter your Password: ");
+        String password = sc.next();
+        String passwordPattern="[A-Za-z0-9]{8,}$";
+        boolean passwordCheck = Pattern.matches(passwordPattern,password);
+        if (passwordCheck) {
+            System.out.println("You have entered valid Password");
+        } else {
+            System.out.println("Sorry! you have entered invalid Password");
+        }
+    }
 }
