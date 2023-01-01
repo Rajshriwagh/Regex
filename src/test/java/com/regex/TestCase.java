@@ -1,28 +1,33 @@
 package com.regex;
-import junit.framework.Assert;
+import static org.junit.Assert.assertEquals;
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
-public class TestCase extends UserRegistrationForm {
-	 @Test
+
+public class TestCase {
+	 UserRegistrationForm userRegistrationForm = new UserRegistrationForm();
+	    @Test
 	    public void NameTest(){
-	        Assert.assertEquals(true, Name("Rajshri") );
+	        Assert.assertEquals(true, userRegistrationForm.checkFirstName("Rajshri") );
 	    }
-
 	    @Test
 	    public void LastNameTest(){
-	        Assert.assertEquals(true, Last("Wagh") );
+	        Assert.assertEquals(true, userRegistrationForm.checkLastName("Wagh") );
 	    }
 	    @Test
 	    public void EmailTest(){
-	        Assert.assertEquals(true, Email("mahajanrajshri@gmail.com") );
+	        Assert.assertEquals(true, userRegistrationForm.checkEmailAddress("mahajan.raj@bl.co.in") );
 	    }
 	    @Test
 	    public void PhoneTest(){
-	        Assert.assertEquals(true, Phone("91 9850460076") );
+	        Assert.assertEquals(true, userRegistrationForm.checkMobileNumber("+91 9582461123") );
 	    }
 	    @Test
 	    public void PasswordTest(){
-	        Assert.assertEquals(true, Password("69@Tin123") );
+	        Assert.assertEquals(true, userRegistrationForm.checkPassword("12@ghfT34") );
 	    }
+
 	    
 	}

@@ -1,35 +1,75 @@
 package com.regex;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-/**
- * (UC-10_JUnit)
- Write JUnit Test to validate the User Entry for First Name, Last Name, Email, Mobile, and Password.
- - Write junit Test for Happy as well as Sad test case.
- - Happy Test Case validates the Entry Successfully
- - Sad Test Cases fails the Entry */
+
 
 public class UserRegistrationForm {
-	static boolean Name(String str1){
-        boolean b1 = Pattern.compile("^[A-Z]{1}[A-Za-z]{2,}$").matcher(str1).matches();
-        return b1;
-    }
 
-    static boolean Last(String str2){
-        boolean b2 = Pattern.compile("^[A-Z]{1}[A-Za-z]{2,}$").matcher(str2).matches();
-        return b2;
-    }
+	    public boolean checkPassword(String password) {
+	        
+	    	String passwordPattern = "^[0-9]{1,}[!@#$%^&]{1,}[A-z]{1,}[a-zA-Z0-9]{5,}$";
+            boolean passwordChk = Pattern.matches(passwordPattern,password);
+            if (passwordChk) {
+                System.out.println("You have entered valid Password");
+            } else {
+                System.out.println("Entered Password is invalid ");
+            }
+            return passwordChk;
 
-    static boolean Email(String str3){
-        boolean b3 = Pattern.compile("^[A-Za-z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+[.]?[a-zA-Z]{2}$").matcher(str3).matches();
-        return b3;
-    }
+        }
+	    
 
-    static boolean Phone(String str4){
-        boolean b4 = Pattern.compile("^(91)[ ]{1}[1-9]{1}[0-9]{9}$").matcher(str4).matches();
-        return b4;
-    }
-    static boolean Password(String str5){
-        boolean b5 = Pattern.compile("^[0-9]{1,}[!@#$%^&]{1,}[A-z]{1,}[a-zA-Z0-9]{5,}$").matcher(str5).matches();
-        return b5;
-    }
-}
+	    public boolean checkMobileNumber(String mobileNumber) {
+	        // UC4: Mobile Number
+	        String mobileNumberPattern = "^[+91]{3,}[ ][0-9]{10}$";
+	        boolean mnCheck = Pattern.matches(mobileNumberPattern, mobileNumber);
+	        if (mnCheck) {
+	            System.out.println("You have entered valid Mobile Number");
+	        } else {
+	            System.out.println("Sorry! you have entered invalid Mobile Number");
+	        }
+	        return mnCheck;
+	    }
+
+	    public boolean checkEmailAddress(String email) {
+	        // UC3: Email
+	        String emailPattern = "^[a-z0-9]{3,}[+.-]?[a-z0-9]{0,}[@]{1,}[a-z0-9]{1,}[.]{1,}([a-z]{0,}[.]{0,})[a-z]{2,}$";
+	        /*
+	         * UC9:Email Sample to check abc@yahoo.com abc-100@yahoo.com abc.100@yahoo.com
+	         * abc111@abc.com abc-100@abc.net abc.100@abc.com.au abc@1.com abc@gmail.co
+	         * abc+100@gmail.com
+	         */
+	        boolean emailCheck = Pattern.matches(emailPattern, email);
+	        if (emailCheck) {
+	            System.out.println("You have entered valid Email Address");
+	        } else {
+	            System.out.println("Sorry! you have entered invalid Email Address");
+	        }
+	        return emailCheck;
+
+	    }
+
+	    public boolean checkLastName(String lastName) {
+	        // UC2:Last Name
+	        boolean lastNameCheck = Pattern.matches("^[A-Z][a-z]{2,}$", lastName);
+	        if (lastNameCheck) {
+	            System.out.println("You have entered valid Last Name");
+	        } else {
+	            System.out.println("Sorry! you have entered invalid Last Name");
+	        }
+	        return lastNameCheck;
+
+	    }
+
+	    public static boolean checkFirstName(String firstName) {
+	        // UC1:First Name
+	        boolean res = Pattern.matches("^[A-Z][a-z]{2,}$", firstName);
+	        if (res) {
+	            System.out.println("You have entered valid First Name");
+	        } else {
+	            System.out.println("Sorry! you have entered invalid First Name");
+	        }
+	        return res;
+
+	    }
+	}
