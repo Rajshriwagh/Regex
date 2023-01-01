@@ -10,23 +10,23 @@ public class TestCase {
 	 UserRegistrationForm userRegistrationForm = new UserRegistrationForm();
 	    @Test
 	    public void NameTest(){
-	        Assert.assertEquals(true, userRegistrationForm.checkFirstName("Rajshri") );
+	        Assert.assertEquals(true, userRegistrationForm.testFirstName("Rajshri") );
 	    }
 	    @Test
 	    public void LastNameTest(){
-	        Assert.assertEquals(true, userRegistrationForm.checkLastName("Wagh") );
+	        Assert.assertEquals(true, userRegistrationForm.testLastName("Wagh") );
 	    }
 	    @Test
 	    public void EmailTest(){
-	        Assert.assertEquals(true, userRegistrationForm.checkEmailAddress("mahajan.raj@bl.co.in") );
+	        Assert.assertEquals(true, userRegistrationForm.testEmailAddress("mahajan.raj@bl.co.in") );
 	    }
 	    @Test
 	    public void PhoneTest(){
-	        Assert.assertEquals(true, userRegistrationForm.checkMobileNumber("+91 9582461123") );
+	        Assert.assertEquals(true, userRegistrationForm.testMobileNumber("+91 9582461123") );
 	    }
 	    @Test
 	    public void PasswordTest(){
-	        Assert.assertEquals(true, userRegistrationForm.checkPassword("12@ghfT34") );
+	        Assert.assertEquals(true, userRegistrationForm.testPassword("12@ghfT34") );
 	    }
 
 	    

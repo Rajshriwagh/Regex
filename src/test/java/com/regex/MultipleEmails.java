@@ -20,7 +20,7 @@ public class MultipleEmails {
 	@Test
 	public void emailTest() {
 		UserRegistrationForm form = new UserRegistrationForm();
-		Assert.assertEquals(expected, form.checkEmailAddress(input));
+		Assert.assertEquals(expected, form.testEmailAddress(input));
 	}
 
 	@Parameterized.Parameters
